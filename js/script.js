@@ -10,7 +10,6 @@ $(document).ready(function () {
 
   // Remove line
   $(document).on("click", ".removeLine", function () {
-    console.log('click');
     lineCounter--;
     $(this).closest('.line').remove();
   });
