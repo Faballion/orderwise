@@ -3,6 +3,11 @@
   margin-bottom: 10px;
 }
 
+#newLine {
+  display: block;
+  margin-bottom: 10px;
+}
+
 .line:nth-child(even) > input {
-  background-color: grey;
+  background-color: #cdcdcd;
 }

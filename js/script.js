@@ -1,17 +1,27 @@
 $(document).ready(function () {
 
-  var lineCounter = 0;
+  var lineNumber = 0;
+  var lineValues = [];
 
   // Add new line
   $("#newLine").on("click", function () {
-    lineCounter++;
-    $(".lines").append("<div class='line'>Line " + lineCounter + " <input type='text'/> <button class='removeLine'>X</button></div>");
+    lineNumber++;
+    lineValues.push('');
+    $(".lines").append("<div class='line'>Line " + lineNumber + " <input class='line-input' type='text'/> <button class='removeLine'>X</button></div>");
   });
 
   // Remove line
   $(document).on("click", ".removeLine", function () {
-    lineCounter--;
+    var index = $(this).parent().index();
+    lineValues.splice(index, 1);
+    $("#outputLines").val(lineValues.join("\n"));
     $(this).closest('.line').remove();
+  });
+
+  // Display in textarea
+  $(document).on("keyup", ".line-input", function () {
+    lineValues[$(this).parent().index()] = $(this).val();
+    $("#outputLines").val(lineValues.join("\n"));
   });
 
 });  
