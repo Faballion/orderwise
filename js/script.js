@@ -31,7 +31,7 @@ $(document).ready(function () {
         $("#outputLines").val(lineValues.join("\n")).change();
         $(this).closest('.line').remove();
       }
-    } else {
+    } else { // If empty line
       lineValues.splice(index, 1);
       lineLock.splice(index, 1);
       $("#outputLines").val(lineValues.join("\n")).change();
@@ -53,10 +53,11 @@ $(document).ready(function () {
         $("#outputLines").val(lineValues.join("\n")).change();
         addNewLine();
         $(this).parent().siblings(":last").find(".line-input").focus(); // Focus new line
+      } else {
+        $("#outputLines").val(lineValues.join("\n")).change();
       }
     }
   });
-
 
   $(document).on("change", "#outputLines", function () {
     //Resize textarea font size
@@ -65,9 +66,11 @@ $(document).ready(function () {
     }
 
     // Display length of textarea
-    var maxLength = $(this).attr("maxlength");
     outputLinesLength = $(this).val().length;
-    $('#outputSubText').text("(" + outputLinesLength + "/" + maxLength + ")");
+    if (outputLinesLength > MAX_TEXTAREA_LENGTH) {
+      outputLinesLength = MAX_TEXTAREA_LENGTH;
+    }
+    $('#outputSubText').text("(" + outputLinesLength + "/" + MAX_TEXTAREA_LENGTH + ")");
   });
 
 });  
