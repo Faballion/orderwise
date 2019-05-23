@@ -12,7 +12,7 @@ $(document).ready(function () {
     lineNumber++;
     lineValues.push('');
     lineLock.push(false);
-    $(".lines").append("<div class='line'>Line " + lineNumber + " <input class='line-input' type='text' maxlength='" + MAX_INPUT_LENGTH + "'/> <button class='removeLine'>X</button></div>");
+    $(".lines").append("<div class='line'><label>Line " + lineNumber + " </label><input class='line-input' type='text' maxlength='" + MAX_INPUT_LENGTH + "'/> <button class='removeLine'>X</button></div>");
   }
 
   // On button click, add new line
