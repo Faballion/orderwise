@@ -23,12 +23,23 @@ $(document).ready(function () {
   // Remove line
   $(document).on("click", ".removeLine", function () {
     var index = $(this).parent().index();
-    lineValues.splice(index, 1);
-    lineLock.splice(index, 1);
-    $("#outputLines").val(lineValues.join("\n")).change();
-    $(this).closest('.line').remove();
+    if ($(this).siblings('.line-input').val().length > 0) {
+      var res = confirm("Are you sure you want to remove this line?");
+      if (res) {
+        lineValues.splice(index, 1);
+        lineLock.splice(index, 1);
+        $("#outputLines").val(lineValues.join("\n")).change();
+        $(this).closest('.line').remove();
+      }
+    } else {
+      lineValues.splice(index, 1);
+      lineLock.splice(index, 1);
+      $("#outputLines").val(lineValues.join("\n")).change();
+      $(this).closest('.line').remove();
+    }
   });
 
+  // Output lines in textarea
   $(document).on("input", ".line-input", function (event) {
     var inputText = $(this).val();
     if ((inputText.length < MAX_INPUT_LENGTH) && (outputLinesLength < MAX_TEXTAREA_LENGTH)) {
@@ -48,7 +59,7 @@ $(document).ready(function () {
 
 
   $(document).on("change", "#outputLines", function () {
-    //Resize Textarea font size
+    //Resize textarea font size
     if ($(this).get(0).scrollHeight > $(this).height()) {
       $(this).css('font-size', '-=1');
     }
