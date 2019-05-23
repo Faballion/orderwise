@@ -34,7 +34,7 @@ $(document).ready(function () {
     if ((inputText.length < MAX_INPUT_LENGTH) && (outputLinesLength < MAX_TEXTAREA_LENGTH)) {
       lineValues[$(this).parent().index()] = inputText;
       lineLock[$(this).parent().index()] = false;
-      $("#outputLines").val(lineValues.join("\n")).change(); // Display in textarea
+      $("#outputLines").val(lineValues.join("\n")).change();
     } else {
       if ((lineLock[$(this).parent().index()] === false) && (outputLinesLength < MAX_TEXTAREA_LENGTH)) {
         lineValues[$(this).parent().index()] = inputText;
@@ -48,6 +48,11 @@ $(document).ready(function () {
 
 
   $(document).on("change", "#outputLines", function () {
+    //Resize Textarea font size
+    if ($(this).get(0).scrollHeight > $(this).height()) {
+      $(this).css('font-size', '-=1');
+    }
+
     // Display length of textarea
     var maxLength = $(this).attr("maxlength");
     outputLinesLength = $(this).val().length;
