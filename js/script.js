@@ -64,8 +64,6 @@ $(document).ready(function () {
     if ($(this).get(0).scrollHeight > $(this).height()) {
       $(this).css('font-size', '-=1');
     }
-    console.log('event fired: ' + $(this).val().length);
-
     // Display length of textarea
     outputLinesLength = $(this).val().length;
     if (outputLinesLength > MAX_TEXTAREA_LENGTH) {
