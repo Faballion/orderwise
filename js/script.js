@@ -12,7 +12,7 @@ $(document).ready(function () {
     lineNumber++;
     lineValues.push('');
     lineLock.push(false);
-    $(".lines").append("<div class='line'><label>Line " + lineNumber + " </label><input class='line-input' type='text' maxlength='" + MAX_INPUT_LENGTH + "'/> <button class='removeLine'>X</button></div>");
+    $(".lines").append("<div class='line'><label>Line " + lineNumber + " </label><input class='line-input' type='text' maxlength='" + MAX_INPUT_LENGTH + "'/> <button type='button' class='removeLine btn btn-danger btn-sm'>X</button></div>");
   }
 
   // On button click, add new line
@@ -64,6 +64,7 @@ $(document).ready(function () {
     if ($(this).get(0).scrollHeight > $(this).height()) {
       $(this).css('font-size', '-=1');
     }
+    console.log('event fired: ' + $(this).val().length);
 
     // Display length of textarea
     outputLinesLength = $(this).val().length;

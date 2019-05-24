@@ -1,11 +1,55 @@
+.navbar {
+	background-color: white;
+}
+
+.nav-link {
+  margin-left: 10px;
+  color: #333333;
+}
+
+#orderwise-logo {
+	width: 40%;
+	margin: auto;
+}
+
+main {
+  margin: 0 auto;
+  width: 90%;
+  margin-top: 50px;
+}
+
+label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
 .line {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
+.line-input {
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  width: 350px;
+}
+
+.removeLine {
+  height: 37px;
+}
+
 #newLine {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .line:nth-child(even) > input {
@@ -23,19 +67,23 @@
   overflow-y: hidden;
 }
 
+footer {
+  background-color: #333333;
+}
+
 /* ==================== PHONES ==================== */
 @media only screen and (min-width: 320px) and (max-width: 680px) {
-  input {
-    width: 75%;
+  .nav-link {
+    margin-left: 0px;
+  }
+  
+  .line-input {
+    width: 80%;
   }
 
   label {
-    display: block;
+    display: block !important;
     margin-bottom: 5px
-  }
-
-  .removeLine {
-    width: 20%;
   }
 
   #outputLines {
